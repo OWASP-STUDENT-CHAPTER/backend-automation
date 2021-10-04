@@ -1,0 +1,28 @@
+{
+  "name": "backend-automation",
+  "version": "1.0.0",
+  "description": "A package to initialize backend specifically create Routes based On the MongoDB Model with CRUD operation in expressjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivamdargan/backend-automation.git"
+  },
+  "keywords": [
+    "backend",
+    "automation"
+  ],
+  "author": "Shivam Dargan <shivamdargan@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shivamdargan/backend-automation/issues"
+  },
+  "homepage": "https://github.com/shivamdargan/backend-automation#readme",
+  "dependencies": {
+    "automation": "0.0.0",
+    "backend": "0.0.0",
+    "npmrc": "^1.1.1"
+  }
+}
