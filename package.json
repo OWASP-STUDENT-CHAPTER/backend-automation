@@ -1,8 +1,11 @@
 {
   "name": "backend-automation",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A package to initialize backend specifically create Routes based On the MongoDB Model with CRUD operation in expressjs",
-  "main": "index.ts",
+  "main": "bin/index.js",
+  "bin": {
+    "backend-automation": "bin/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
