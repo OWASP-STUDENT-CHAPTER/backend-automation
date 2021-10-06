@@ -1,13 +1,13 @@
 # Backend-Automation
 
+## Install The Package Using npm: ``` npm install backend-automation```
+
 Npm package to initialize backend with CRUD operation in expressjs
 
 ```
 Link To NPM Package : https://www.npmjs.com/package/backend-automation
 
 ```
-
-## Install The Pacckage Using The Following Command : ``` npm install backend-automation```
 
 ## To Run And Test The NPM Package, Run The Following Commands
 
