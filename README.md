@@ -11,7 +11,7 @@ Link To NPM Package : https://www.npmjs.com/package/backend-automation
 
 ## To Run And Test The NPM Package, Run The Following Commands
 
-### Inside /bin Directory
+### Inside ```/bin``` Directory
 
 #### Make Your Changes In The ```index.ts``` File
 
