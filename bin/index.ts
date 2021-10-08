@@ -1,20 +1,55 @@
 #! /usr/bin/env node
 
+const CLI=require('clui')
 var touch = require("touch")
 const fs = require('fs')
+const Spinner = CLI.Spinner;
+const serverSetup = require("../src/serverTemplate.js")
+const envSetup = require("../src/envTemplate.js")
 
-let content:string="This is is the First Line Inside The Backend Automation Text File"
-touch('backend-automation.txt',()=>{
+const serverLoading = new Spinner('Creating Server.js File And Linking Your Stuff, Hold On...')
+const envLoading = new Spinner('Creating And Configuring Your Enviroment Variables, Hold On...')
+const routesLoading = new Spinner('Creating Your CRUD routes automatically , Hold On...')
+const succesMessage = new Spinner('All Scripts Executed Succesfully, Applying Finishing Touches...')
+touch('server.js', () => {
+  serverLoading.start()
+    fs.writeFile('./server.js', serverSetup.default , (err:any) => {
+      if (err) 
+      {
+        console.error(err)
+        return
+      }
+      serverLoading.stop()
+    })
+})
 
-  console.log("An Automated Backend Text File has been created !")
-  fs.writeFile('./backend-automation.txt', content, 'utf8' , (err:any) => {
-    if (err) {
+
+touch('.env',()=>
+{
+  envLoading.start()
+  fs.writeFile('.env', envSetup.default , (err:any) => {
+    if (err) 
+    {
       console.error(err)
       return
     }
+    envLoading.stop()
   })
-
 })
+
+
+touch('prod.env',(err:any)=>
+{
+  if (err) 
+    {
+      console.error(err)
+      return
+    }
+})
+
+setTimeout(function():void{ succesMessage.start()}, 0);
+setTimeout(function():void{ succesMessage.stop()}, 2000);
+
 exports.printMsg = function():void {
     console.log("This is a message from Backend Automation NPM Package and Basic Typescript Enviroment Setup !");
   }
