@@ -2,7 +2,10 @@ const basicServerSetup:string = `
 require("dotenv").config(envConfig);
 const express = require("express");
 const app = express();
-const path = require("path");
+
+//Requiring Database
+require("./initDatabase/db");
+
 const envConfig = {
     path: process.env.NODE_ENV === "production" ? "prod.env" : ".env",
   };

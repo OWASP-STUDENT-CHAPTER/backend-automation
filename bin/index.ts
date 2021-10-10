@@ -6,11 +6,14 @@ const fs = require('fs')
 const Spinner = CLI.Spinner;
 const serverSetup = require("../src/serverTemplate.js")
 const envSetup = require("../src/envTemplate.js")
+const mongoSetup = require("../src/mongoTemplate")
 
 const serverLoading = new Spinner('Creating Server.js File And Linking Your Stuff, Hold On...')
 const envLoading = new Spinner('Creating And Configuring Your Enviroment Variables, Hold On...')
 const routesLoading = new Spinner('Creating Your CRUD routes automatically , Hold On...')
 const succesMessage = new Spinner('All Scripts Executed Succesfully, Applying Finishing Touches...')
+
+
 touch('server.js', () => {
   serverLoading.start()
     fs.writeFile('./server.js', serverSetup.default , (err:any) => {
@@ -22,6 +25,22 @@ touch('server.js', () => {
       serverLoading.stop()
     })
 })
+
+fs.promises.mkdir("./initDatabase")
+.then(()=>{
+    touch("./initDatabase/db.js", () => {
+     
+        fs.writeFile("./initDatabase/db.js", mongoSetup.default , (err:any) => {
+          if (err) 
+          {
+            console.error(err)
+            return
+          }
+        })
+    })
+  }).catch((err)=> {
+    console.log(err)
+  })
 
 
 touch('.env',()=>
@@ -45,6 +64,15 @@ touch('prod.env',(err:any)=>
       console.error(err)
       return
     }
+    
+    fs.writeFile('prod.env', "ENTER YOUR PRODUCTION ENV DETAILS HERE" , (err:any) => {
+      if (err) 
+      {
+        console.error(err)
+        return
+      }
+      
+    })
 })
 
 setTimeout(function():void{ succesMessage.start()}, 0);
