@@ -27,24 +27,6 @@ touch('server.js', () => {
     })
 })
 
-// Previous commit, fixed error due to mkdir and touch commands
-// fs.promises.mkdir("./initDatabase")
-// .then(()=>{
-//     touch("./initDatabase/db.js", () => {
-     
-//         fs.writeFile("./initDatabase/db.js", mongoSetup.default , (err:any) => {
-//           if (err) 
-//           {
-//             console.error(err)
-//             return
-//           }
-//         })
-//     })
-//   }).catch((err)=> {
-//     console.log(err)
-//   })
-
-
 fs.promises.mkdir("./initDatabase")
 .then(()=>{
     fs.writeFile("./initDatabase/db.js", mongoSetup.default , (err:any) => {

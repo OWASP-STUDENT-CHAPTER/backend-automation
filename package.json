@@ -1,6 +1,6 @@
 {
   "name": "backend-automation",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A package to initialize backend specifically create Routes based On the MongoDB Model with CRUD operation in expressjs",
   "main": "bin/index.js",
   "bin": {
