@@ -1,4 +1,6 @@
-const PORT = 5000
+const arg = require('./argTemp')
+
+const PORT = arg.PORT
 
 const envTemplate:string = 
 `PORT=${PORT}

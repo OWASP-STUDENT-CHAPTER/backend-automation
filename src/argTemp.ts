@@ -16,3 +16,8 @@ const args = arg({
 if (!args['--port']) throw new Error('missing required argument: --port');
 
 console.log(args)
+
+module.exports = {
+	PORT : args['--port'],
+	ModelURI : args['--models']
+}
