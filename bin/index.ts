@@ -7,6 +7,7 @@ const Spinner = CLI.Spinner;
 const serverSetup = require("../src/serverTemplate.js")
 const envSetup = require("../src/envTemplate.js")
 const mongoSetup = require("../src/mongoTemplate")
+const argRetrival = require("../src/argTemp")
 
 const serverLoading = new Spinner('Creating Server.js File And Linking Your Stuff, Hold On...')
 const envLoading = new Spinner('Creating And Configuring Your Enviroment Variables, Hold On...')
@@ -26,21 +27,34 @@ touch('server.js', () => {
     })
 })
 
+// fs.promises.mkdir("./initDatabase")
+// .then(()=>{
+//     touch("./initDatabase/db.js", () => {
+     
+//         fs.writeFile("./initDatabase/db.js", mongoSetup.default , (err:any) => {
+//           if (err) 
+//           {
+//             console.error(err)
+//             return
+//           }
+//         })
+//     })
+//   }).catch((err)=> {
+//     console.log(err)
+//   })
 fs.promises.mkdir("./initDatabase")
 .then(()=>{
-    touch("./initDatabase/db.js", () => {
-     
-        fs.writeFile("./initDatabase/db.js", mongoSetup.default , (err:any) => {
-          if (err) 
-          {
-            console.error(err)
-            return
-          }
-        })
-    })
-  }).catch((err)=> {
-    console.log(err)
+    fs.writeFile("./initDatabase/db.js", mongoSetup.default , (err:any) => {
+    if (err) 
+    {
+      console.error(err)
+      return
+    }
   })
+})
+.catch((err)=> {
+  console.log(err)
+})
 
 
 touch('.env',()=>
@@ -74,6 +88,7 @@ touch('prod.env',(err:any)=>
       
     })
 })
+
 
 setTimeout(function():void{ succesMessage.start()}, 0);
 setTimeout(function():void{ succesMessage.stop()}, 2000);
