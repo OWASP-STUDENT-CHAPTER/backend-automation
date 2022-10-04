@@ -1,3 +1,5 @@
+![hacktoberfest](./assets/WhatsApp%20Image%202022-10-05%20at%2000.28.18.jpeg)
+
 # Backend-Automation
 A NPM package that takes care of the all the hassle in setting a basic Express.js backend server. Just install the package on your terminal and run the command to setup a basic Express server on Node.js with MongoDB as the database of choice. The is to ease the backend development process by eliminating the time spent in setting up a server with the basic CRUD operations. 
 
